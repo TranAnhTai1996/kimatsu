@@ -11,6 +11,7 @@ if (isset($_SESSION['id'])) {
     $messages = $dbh->prepare($sql);
     $messages->bindValue(1, $item, PDO::PARAM_STR);
 /* 期末課題　５）バインド処理を追加する */
+    $messages->bindValue(':id',$id,PDO::PARAM_INT);
     $messages->execute();
 	$message = $messages->fetch();
 
